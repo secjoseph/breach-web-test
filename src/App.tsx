@@ -1,4 +1,3 @@
-import React from "react";
 import { BreachList } from "./BreachList";
 
 function App() {
