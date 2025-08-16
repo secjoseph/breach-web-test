@@ -26,18 +26,15 @@ jobs:
           echo "VITE_FIREBASE_MESSAGING_SENDER_ID=${{ secrets.VITE_FIREBASE_MESSAGING_SENDER_ID }}" >> .env.production
           echo "VITE_FIREBASE_APP_ID=${{ secrets.VITE_FIREBASE_APP_ID }}" >> .env.production
           echo "VITE_PUBLIC_URL=${{ secrets.VITE_PUBLIC_URL }}" >> .env.production
-        working-directory: ./web
 
       - name: Install dependencies
         run: npm install
-        working-directory: ./web
 
       - name: Build
         run: npm run build
-        working-directory: ./web
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./web/dist
+          publish_dir: ./dist
